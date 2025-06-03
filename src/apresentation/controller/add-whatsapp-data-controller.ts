@@ -19,7 +19,7 @@ export class WhatsappDataController implements Controller {
         tipoViagem,
         numerDePassageiro,
         valor,
-      } = httpRequest.body;
+      } = httpRequest.body.body;
 
       const error = this.validation.validate(httpRequest.body);
       if (error) {
