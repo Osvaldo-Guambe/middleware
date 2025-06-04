@@ -21,6 +21,8 @@ export class WhatsappDataController implements Controller {
         valoraPagar,
       } = httpRequest.body;
 
+      console.log("#$$$$", dataPartida);
+      console.log("#$$$$", dataRetorno);
       const error = this.validation.validate(httpRequest.body);
       if (error) {
         return badRequest(error);
