@@ -15,10 +15,10 @@ export class WhatsappDataController implements Controller {
         vooInicial,
         vooDestino,
         dataPartida,
-        dataReturno,
+        dataRetorno,
         tipoViagem,
         numerodePassageiro,
-        valorPagar,
+        valoraPagar,
       } = httpRequest.body;
 
       const error = this.validation.validate(httpRequest.body);
@@ -30,10 +30,10 @@ export class WhatsappDataController implements Controller {
         incio: vooInicial,
         destino: vooDestino,
         partida: dataPartida,
-        returno: dataReturno,
+        returno: dataRetorno,
         tipoViagem: tipoViagem,
         numerDePassageiro: numerodePassageiro,
-        valor: valorPagar,
+        valor: valoraPagar,
       });
 
       if (!add) {
