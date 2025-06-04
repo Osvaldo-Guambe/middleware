@@ -12,13 +12,13 @@ export class WhatsappDataController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const {
-        vooInicio,
+        vooInicial,
         vooDestino,
         dataPartida,
         dataReturno,
         tipoViagem,
-        numerDePassageiro,
-        valor,
+        numerodePassageiro,
+        valorPagar,
       } = httpRequest.body;
 
       const error = this.validation.validate(httpRequest.body);
@@ -27,13 +27,13 @@ export class WhatsappDataController implements Controller {
       }
 
       const add = await this.addVooInfo.add({
-        incio: vooInicio,
+        incio: vooInicial,
         destino: vooDestino,
         partida: dataPartida,
         returno: dataReturno,
         tipoViagem: tipoViagem,
-        numerDePassageiro: numerDePassageiro,
-        valor: valor,
+        numerDePassageiro: numerodePassageiro,
+        valor: valorPagar,
       });
 
       if (!add) {
