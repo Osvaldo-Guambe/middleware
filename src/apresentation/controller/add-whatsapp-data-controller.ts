@@ -15,15 +15,15 @@ export class WhatsappDataController implements Controller {
       const {
         vooInicial,
         vooDestino,
-        dataPartida,
-        dataRetorno,
+        datadePartida,
+        datadeRetorno,
         tipoViagem,
         numerodePassageiro,
         valoraPagar,
       } = httpRequest.body;
 
-      const partida = moment(dataPartida).toDate();
-      const returno = moment(dataRetorno).toDate();
+      const partida = moment(datadePartida).toDate();
+      const returno = moment(datadeRetorno).toDate();
 
       const error = this.validation.validate(httpRequest.body);
       if (error) {
