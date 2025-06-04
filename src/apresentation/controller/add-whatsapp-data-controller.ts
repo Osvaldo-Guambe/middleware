@@ -2,7 +2,7 @@ import { AddFlightInfo } from "../../domain/usecaces/flight-usecase";
 import { badRequest, noContent, serverError } from "../helpers/http-helpers";
 import { Controller, HttpRequest, HttpResponse } from "../protocols";
 import { Validation } from "../protocols/validation";
-import moment from "moment";
+// import moment from "moment";
 
 export class WhatsappDataController implements Controller {
   constructor(
@@ -22,8 +22,12 @@ export class WhatsappDataController implements Controller {
         valoraPagar,
       } = httpRequest.body;
 
-      const partida = moment(datadePartida).toDate();
-      const returno = moment(datadeRetorno).toDate();
+      // const partida = moment(datadePartida).toDate();
+      // const returno = moment(datadeRetorno).toDate();
+
+      // const formattedDate = moment(partida).format("YYYY-MM-DD HH:mm:ss");
+
+      // console.log("####$$$$ˆˆˆ&***", partida);
 
       const error = this.validation.validate(httpRequest.body);
       if (error) {
@@ -33,8 +37,8 @@ export class WhatsappDataController implements Controller {
       const add = await this.addVooInfo.add({
         incio: vooInicial,
         destino: vooDestino,
-        partida,
-        returno,
+        partida: datadePartida,
+        returno: datadeRetorno,
         tipoViagem: tipoViagem,
         numerDePassageiro: numerodePassageiro,
         valor: valoraPagar,
