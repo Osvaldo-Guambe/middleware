@@ -5,7 +5,7 @@ import { ValidationComposite } from "../../../apresentation/validations/validati
 export const makeValidationAddWhatsappData = (): ValidationComposite => {
   const validations: Validation[] = [];
 
-  const requiredFields = ["vooInicio"];
+  const requiredFields = ["vooInicial"];
 
   for (const field of requiredFields) {
     validations.push(new RequiredFieldValidation(field));
