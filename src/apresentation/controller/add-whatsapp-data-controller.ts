@@ -1,5 +1,10 @@
 import { AddFlightInfo } from "../../domain/usecaces/flight-usecase";
-import { badRequest, noContent, serverError } from "../helpers/http-helpers";
+import {
+  badRequest,
+  noContent,
+  ok,
+  serverError,
+} from "../helpers/http-helpers";
 import { Controller, HttpRequest, HttpResponse } from "../protocols";
 import { Validation } from "../protocols/validation";
 
@@ -40,7 +45,7 @@ export class WhatsappDataController implements Controller {
         return badRequest(new Error("Falha ao salvar os dados"));
       }
 
-      return noContent();
+      return ok(add);
     } catch (error) {
       console.log(error);
       if (error.errors) {

@@ -12,5 +12,5 @@ export type FlightAttribute = {
 export type FlightWithoutId = Omit<FlightAttribute, "id">;
 
 export interface AddFlightInfo {
-  add(data: FlightWithoutId): Promise<FlightAttribute>;
+  add(data: FlightWithoutId): Promise<FlightAttribute | any>;
 }
