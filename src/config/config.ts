@@ -1,11 +1,11 @@
 import "dotenv/config";
 import { type Dialect, Sequelize } from "sequelize";
 
-const dbName = process.env.DB_NAME;
-const dbUser = process.env.DB_USER;
-const dbHost = process.env.DB_HOST as string;
-const dbDriver = process.env.DB_DRIVER as Dialect;
-const dbPassword = process.env.DB_PASSWORD;
+const dbName = process.env.DB_NAME || "clicapps_middleware";
+const dbUser = process.env.DB_USER || "root";
+const dbHost = (process.env.DB_HOST as string) || "54.242.92.115";
+const dbDriver = (process.env.DB_DRIVER as Dialect) || "mysql";
+const dbPassword = process.env.DB_PASSWORD || " v2a8l0d5o1f";
 
 const sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
   host: dbHost,
