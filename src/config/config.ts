@@ -13,6 +13,6 @@ const sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
 });
 
 // sequelizeConnection.sync({ alter: true });
-// sequelizeConnection.sync() // This will create new table if does not existed
+sequelizeConnection.sync(); // This will create new table if does not existed
 
 export default sequelizeConnection;
