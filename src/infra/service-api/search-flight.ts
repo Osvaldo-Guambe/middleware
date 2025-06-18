@@ -75,17 +75,24 @@ export class APISearchFlight implements SearchFlight {
 
     async function sendVRSRequest(command) {
       const data = QueryString.stringify({
-        Token: process.env.VRS_TOKEN,
+        Token:
+          process.env.VRS_TOKEN ||
+          "E7ATVw5LGLMCx96JJ9RDM30KwC3xc746/XtetqSBOwI=",
         Command: command,
       });
 
-      return await axios.post(process.env.VRS_URL, data, {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Accept: "application/xml",
-        },
-        timeout: 10000,
-      });
+      return await axios.post(
+        process.env.VRS_URL ||
+          "https://customertest.videcom.com/fastjet/vrsxmlservice/vrsxmlwebservice3.asmx/PostVRSCommand",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Accept: "application/xml",
+          },
+          timeout: 10000,
+        }
+      );
     }
 
     const responseData = await formatFlightResponse({
@@ -124,7 +131,10 @@ export class APISearchFlight implements SearchFlight {
         Destination1: destination,
       });
 
-      return `${process.env.IBE_BASE_URL}/deeplink.aspx?${params.toString()}`;
+      return `${
+        process.env.IBE_BASE_URL ||
+        "https://customertest.videcom.com/fastjet/VARS/Public"
+      }/deeplink.aspx?${params.toString()}`;
     }
 
     function generateShallowLink({
