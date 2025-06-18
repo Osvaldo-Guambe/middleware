@@ -9,7 +9,7 @@ const dbPassword = process.env.DB_PASSWORD;
 
 const sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
   host: dbHost,
-  dialect: dbDriver,
+  dialect: "mysql",
 });
 
 // sequelizeConnection.sync({ alter: true });
