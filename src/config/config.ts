@@ -12,7 +12,7 @@ const sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
   dialect: dbDriver,
 });
 
-sequelizeConnection.sync({ alter: true });
+// sequelizeConnection.sync({ alter: true });
 // sequelizeConnection.sync() // This will create new table if does not existed
 
 export default sequelizeConnection;
