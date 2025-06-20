@@ -165,7 +165,8 @@ export class APISearchFlight implements SearchFlight {
       });
 
       return `${
-        process.env.IBE_BASE_URL
+        process.env.IBE_BASE_URL ||
+        "https://customertest.videcom.com/fastjet/VARS/Public"
       }/shallowlink.aspx?${params.toString()}`;
     }
 
